@@ -1,5 +1,8 @@
 <template>
-  <h1>{{ slug }}</h1>
+  <div>
+    <h1>{{ slug }}</h1>
+    {{ something }}
+  </div>
 </template>
 
 <script>
@@ -8,8 +11,11 @@ export default {
     const slug = params.slug // When calling /abc the slug will be "abc"
     if (payload) {
       console.log('payload', payload)
+    } else {
+      console.log('no payload', payload)
     }
-    return { slug }
+    const something = payload ? payload.name : ''
+    return { slug, something }
   }
 }
 </script>
