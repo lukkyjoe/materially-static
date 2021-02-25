@@ -4,8 +4,11 @@
 
 <script>
 export default {
-  asyncData ({ params }) {
+  asyncData ({ params, payload }) {
     const slug = params.slug // When calling /abc the slug will be "abc"
+    if (payload) {
+      console.log('payload', payload)
+    }
     return { slug }
   }
 }

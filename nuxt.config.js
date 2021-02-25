@@ -11,7 +11,12 @@ export default {
         .get('https://materially-backend.herokuapp.com/things')
         .then((res) => {
           console.log('res', res.data)
-          return res.data.map(thing => `item/${thing.id}`)
+          return res.data.map((thing) => {
+            return {
+              route: `item/${thing.id}`,
+              payload: thing
+            }
+          })
         })
     }
   },
