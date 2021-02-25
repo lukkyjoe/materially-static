@@ -9,7 +9,10 @@ export default {
     routes () {
       return axios
         .get('https://materially-backend.herokuapp.com/things')
-        .then(res => res.map(thing => `item/${thing.id}`))
+        .then((res) => {
+          console.log('res', res.data)
+          return res.data.map(thing => `item/${thing.id}`)
+        })
     }
   },
 
